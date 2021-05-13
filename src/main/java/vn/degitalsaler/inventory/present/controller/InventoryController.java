@@ -38,17 +38,18 @@ public class InventoryController {
 		return productService.count();
 	}
 
-	@PostMapping("/add")
+	@PostMapping("/save")
 	public @ResponseBody Product addProduct(@RequestBody Product product) {
-		LOGGER.info("Request to add new product");
+		LOGGER.info("Request to save product");
 
 		if (product == null) {
 			return null;
 		}
-		LOGGER.info("Generate random ID String for product and clean up id");
-		product.setId(null);
-		product.setIdString(UUID.randomUUID().toString());
-		
+		if (product.getId() == null || product.getId().intValue() <= 0) {
+			LOGGER.info("Generate random ID String for product");
+			product.setIdString(UUID.randomUUID().toString());
+		}
+
 		return productService.importProduct(product);
 	}
 }
