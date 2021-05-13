@@ -10,9 +10,9 @@
 		<relativePath />
 	</parent>
 	<groupId>vn.degital-saler</groupId>
-	<artifactId>inventory</artifactId>
+	<artifactId>degital-saler-inventory-simulator</artifactId>
 	<version>0.0.1</version>
-	<name>degital-saler-inventory</name>
+	<name>degital-saler-inventory-simulator</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
