@@ -21,7 +21,7 @@ spring:
    jpa:
       defer-datasource-initialization: true
       generate-ddl: true
-      hibernate.ddl-auto: create
+      hibernate.ddl-auto: update
 logging:
    file:
       name: ./logs/${spring.application.name}.log
