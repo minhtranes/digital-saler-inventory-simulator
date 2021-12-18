@@ -3,7 +3,7 @@ server:
 spring:
    application.name: digital-saler-inventory
    boot.admin.client:
-      enabled: true
+      enabled: false
       url: http://localhost:8089
       instance:
          service-base-url: http://localhost:${server.port}/
@@ -12,12 +12,16 @@ spring:
       url: jdbc:h2:mem:productdb
       platform: h2
       driverClassName: org.h2.Driver
-      username: sa
-      password: null
+      username: admin
+      password: admin
       jpa.database-platform: org.hibernate.dialect.H2Dialect
-      h2.console:
-         enabled: true
-         path: h2-consolee
+   h2.console:
+      enabled: true
+      path: /h2-console
+   jpa:
+      defer-datasource-initialization: true
+      generate-ddl: true
+      hibernate.ddl-auto: update
 logging:
    file:
       name: ./logs/${spring.application.name}.log
@@ -29,6 +33,10 @@ logging:
       file-name-pattern: ./logs/${spring.application.name}-%d{yyyy-MM-dd}.%i.log
    level:
       org.apache.kafka.clients: info
+   cloud.function:
+      scan.packages: vn.degitalsaler.inventory.present.controller
+      definition: listResponseShortInfo
+      web.path: /simulator
 management:
    metrics:
       export:
