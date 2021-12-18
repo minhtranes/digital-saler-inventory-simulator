@@ -1,12 +1,63 @@
 server:
-  port: ${PORT:8080}
-spring.datasource:
-  url: jdbc:h2:mem:productdb
-  platform: h2
-  driverClassName: org.h2.Driver
-  username: sa
-  password: 
-  jpa.database-platform: org.hibernate.dialect.H2Dialect
-  h2.console:
-    enabled: true
-    path: h2-console
+   port: ${PORT:8080}
+spring:
+   application.name: digital-saler-inventory
+   boot.admin.client:
+      enabled: false
+      url: http://localhost:8089
+      instance:
+         service-base-url: http://localhost:${server.port}/
+         prefer-ip: false
+   datasource:
+      url: jdbc:h2:mem:productdb
+      platform: h2
+      driverClassName: org.h2.Driver
+      username: admin
+      password: admin
+      jpa.database-platform: org.hibernate.dialect.H2Dialect
+   h2.console:
+      enabled: true
+      path: /h2-console
+   jpa:
+      defer-datasource-initialization: true
+      generate-ddl: true
+      hibernate.ddl-auto: update
+logging:
+   file:
+      name: ./logs/${spring.application.name}.log
+   logback.rollingpolicy:
+      max-file-size: 10MB
+      max-history: 2
+      total-size-cap: 0B
+      clean-history-on-start: true
+      file-name-pattern: ./logs/${spring.application.name}-%d{yyyy-MM-dd}.%i.log
+   level:
+      org.apache.kafka.clients: info
+   cloud.function:
+      scan.packages: vn.degitalsaler.inventory.present.controller
+      definition: listResponseShortInfo
+      web.path: /simulator
+management:
+   metrics:
+      export:
+         atlas:
+            enabled: false
+            step: 5s
+            uri: http://localhost:7101/api/v1/publish
+         elastic:
+            enabled: false
+            step: 5s
+            host: http://192.168.56.4:9200
+            index: metrics-${spring.application.name}
+            indexDateFormat: yyyy-MM-dd
+   endpoints:
+      health.binders.enabled: true
+      enabled-by-default: true
+      web:
+         exposure.include: '*'
+         cors:
+            allowed-origins: '*'
+            allowed-methods: GET,POST,PUT
+      jmx.exposure.include: '*'
+   endpoint:
+      health.show-details: always
