@@ -30,4 +30,11 @@ public class ProductService {
 		LOGGER.info("Adding product with id [{}]", product.getIdString());
 		return productRepository.save(product);
 	}
+
+	public Product get(Integer productId) {
+		if (productId == null) {
+			return null;
+		}
+		return productRepository.getOne(productId);
+	}
 }
