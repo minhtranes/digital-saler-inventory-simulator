@@ -57,18 +57,18 @@ public class SimulatorController {
         ObjectNode res = (ObjectNode) jn;
         res.remove("registeredAt");
 
-        long responseTimeSec = responseTime.toSeconds();
-        if (responseTimeSec > 1) {
-            delay(responseTimeSec);
+        long responseTimeMs = responseTime.toMillis();
+        if (responseTimeMs > 1) {
+            delay(responseTimeMs);
         }
 
         log.info("Request done in {}ms", (System.currentTimeMillis() - begin));
         return res;
     }
 
-    private void delay(long delayTimeInSecond) {
+    private void delay(long delayTimeInMs) {
         try {
-            TimeUnit.SECONDS.sleep(delayTimeInSecond);
+            TimeUnit.MILLISECONDS.sleep(delayTimeInMs);
         }
         catch (InterruptedException e) {
 
