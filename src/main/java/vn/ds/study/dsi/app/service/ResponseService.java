@@ -10,7 +10,7 @@
  * Swiss Post Solution.
  * Floor 4-5-8, ICT Tower, Quang Trung Software City
  */
-package vn.degitalsaler.inventory.app.service;
+package vn.ds.study.dsi.app.service;
 
 import java.util.Map;
 import java.util.Map.Entry;

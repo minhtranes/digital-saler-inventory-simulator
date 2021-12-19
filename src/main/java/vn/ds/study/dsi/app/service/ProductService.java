@@ -1,4 +1,4 @@
-package vn.degitalsaler.inventory.app.service;
+package vn.ds.study.dsi.app.service;
 
 import java.util.Optional;
 
@@ -8,8 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
-import vn.degitalsaler.inventory.entity.Product;
-import vn.degitalsaler.inventory.infra.repository.ProductRepository;
+import vn.ds.study.dsi.entity.Product;
+import vn.ds.study.dsi.infra.repository.ProductRepository;
 
 @Service
 @Slf4j

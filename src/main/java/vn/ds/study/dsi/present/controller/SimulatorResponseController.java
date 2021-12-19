@@ -10,7 +10,7 @@
  * Swiss Post Solution.
  * Floor 4-5-8, ICT Tower, Quang Trung Software City
  */
-package vn.degitalsaler.inventory.present.controller;
+package vn.ds.study.dsi.present.controller;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import lombok.extern.slf4j.Slf4j;
-import vn.degitalsaler.inventory.app.service.ResponseService;
+import vn.ds.study.dsi.app.service.ResponseService;
 
 @Slf4j
 @RestController

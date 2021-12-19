@@ -33,10 +33,6 @@ logging:
       file-name-pattern: ./logs/${spring.application.name}-%d{yyyy-MM-dd}.%i.log
    level:
       org.apache.kafka.clients: info
-   cloud.function:
-      scan.packages: vn.degitalsaler.inventory.present.controller
-      definition: listResponseShortInfo
-      web.path: /simulator
 management:
    metrics:
       export:
