@@ -1,4 +1,4 @@
-package vn.degitalsaler.inventory.entity;
+package vn.ds.study.dsi.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

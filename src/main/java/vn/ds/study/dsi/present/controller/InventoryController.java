@@ -1,4 +1,4 @@
-package vn.degitalsaler.inventory.present.controller;
+package vn.ds.study.dsi.present.controller;
 
 import java.util.UUID;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
-import vn.degitalsaler.inventory.app.service.ProductService;
-import vn.degitalsaler.inventory.entity.Product;
+import vn.ds.study.dsi.app.service.ProductService;
+import vn.ds.study.dsi.entity.Product;
 
 @RestController
 @RequestMapping("inventory")

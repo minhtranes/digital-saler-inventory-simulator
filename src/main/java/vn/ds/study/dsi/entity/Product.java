@@ -1,4 +1,4 @@
-package vn.degitalsaler.inventory.entity;
+package vn.ds.study.dsi.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

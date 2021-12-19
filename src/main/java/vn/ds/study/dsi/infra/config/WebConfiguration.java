@@ -1,4 +1,4 @@
-package vn.degitalsaler.inventory.infra.config;
+package vn.ds.study.dsi.infra.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
