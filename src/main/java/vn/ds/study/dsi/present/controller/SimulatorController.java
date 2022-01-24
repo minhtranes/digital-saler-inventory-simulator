@@ -15,6 +15,8 @@ package vn.ds.study.dsi.present.controller;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,13 +43,16 @@ public class SimulatorController {
     @GetMapping("/request/{responseId}")
     public ObjectNode request(
         @PathVariable(name = "responseId", required = true) String responseId,
-        @RequestParam(name = "responseTime", required = false, defaultValue = "PT1S") Duration responseTime) {
+        @RequestParam(name = "responseTime", required = false, defaultValue = "PT1S") Duration responseTime,
+        @RequestParam(name = "responseCode", required = false, defaultValue = "200") int responseCode,
+        HttpServletResponse response) {
         long begin = System.currentTimeMillis();
 
         log.info(
-            "Request for responseId = {} and responseTime = {}",
+            "Request info: responseId = {}, responseTime = {}, responseCode = {}",
             responseId,
-            responseTime);
+            responseTime,
+            responseCode);
 
         JsonNode jn = responseService.read(responseId);
         if (jn == null) {
@@ -61,6 +66,8 @@ public class SimulatorController {
         if (responseTimeMs > 1) {
             delay(responseTimeMs);
         }
+
+        response.setStatus(responseCode);
 
         log.info("Request done in {}ms", (System.currentTimeMillis() - begin));
         return res;

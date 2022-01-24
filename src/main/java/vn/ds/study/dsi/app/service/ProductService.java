@@ -26,8 +26,8 @@ public class ProductService {
         return productRepository.count();
     }
 
-    public Product importProduct(Product product) {
-        log.info("Adding product with id [{}]", product.getIdString());
+    public Product saveProduct(Product product) {
+        log.info("Save product with id [{}]", product.getIdString());
         return productRepository.save(product);
     }
 

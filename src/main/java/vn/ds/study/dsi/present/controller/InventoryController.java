@@ -1,6 +1,7 @@
 package vn.ds.study.dsi.present.controller;
 
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,6 +28,12 @@ public class InventoryController {
 
 	@GetMapping("/list")
 	public Page<Product> list(Pageable page) {
+	    log.info("List all product of page {}, size {}", page.getPageNumber(), page.getPageSize());
+	    try {
+            TimeUnit.SECONDS.sleep(2);
+        }
+        catch (InterruptedException e) {
+        }
 		return productService.list(page);
 	}
 
@@ -47,7 +54,7 @@ public class InventoryController {
 			product.setIdString(UUID.randomUUID().toString());
 		}
 
-		return productService.importProduct(product);
+		return productService.saveProduct(product);
 	}
 	
 	@GetMapping("/get/{id}")
