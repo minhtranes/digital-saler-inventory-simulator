@@ -9,6 +9,6 @@
         </encoder>
     </appender> -->
     <root level="INFO">
-        <appender-ref ref="ELK" />
+        <!--<appender-ref ref="ELK" />-->
     </root>
 </configuration>
