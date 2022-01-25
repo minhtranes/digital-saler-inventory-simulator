@@ -9,7 +9,7 @@ spring:
          service-base-url: http://localhost:${server.port}/
          prefer-ip: false
    datasource:
-      url: jdbc:h2:mem:productdb
+      url: jdbc:h2:file:./data/productdb
       platform: h2
       driverClassName: org.h2.Driver
       username: admin
