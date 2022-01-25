@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>vn.ds.study</groupId>
 	<artifactId>digital-saler-inventory-simulator</artifactId>
-	<version>0.0.5</version>
+	<version>0.0.6</version>
 	<name>digital-saler-inventory-simulator</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
