@@ -16,17 +16,17 @@ public class Product extends AbstractEntity {
 	private String phoneNumber;
 	private String currency;
 	private String businessAddress;
-	private Double importPrice;
-	private Double salePrice;
+	private Integer importPrice;
+	private Integer salePrice;
 	private String shippingAddress;
 	private LocalDateTime importDate;
 	private LocalDate expirationDate;
 
-	public Double getSalePrice() {
+	public Integer getSalePrice() {
 		return salePrice;
 	}
 
-	public void setSalePrice(Double salePrice) {
+	public void setSalePrice(Integer salePrice) {
 		this.salePrice = salePrice;
 	}
 
@@ -86,11 +86,11 @@ public class Product extends AbstractEntity {
 		this.businessAddress = businessAddress;
 	}
 
-	public Double getImportPrice() {
+	public Integer getImportPrice() {
 		return importPrice;
 	}
 
-	public void setImportPrice(Double importPrice) {
+	public void setImportPrice(Integer importPrice) {
 		this.importPrice = importPrice;
 	}
 
