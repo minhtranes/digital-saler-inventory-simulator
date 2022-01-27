@@ -27,13 +27,20 @@ public class InventoryController {
 	private ProductService productService;
 
 	@GetMapping("/list")
-	public Page<Product> list(Pageable page) {
-	    log.info("List all product of page {}, size {}", page.getPageNumber(), page.getPageSize());
-	    try {
-            TimeUnit.SECONDS.sleep(2);
-        }
-        catch (InterruptedException e) {
-        }
+	public Page<Product> list(
+		@RequestParam(name = "delayBeforeProcessInSecond", required = false, defaultValue = "0") int delayBeforeProcessInSecond,
+		,Pageable page) {
+
+	    log.info("List all product of page: {}, size: {}, delayBeforeProcessInSecond: {}", page.getPageNumber(), page.getPageSize(), delayBeforeProcessInSecond);
+
+		if( delayBeforeProcessInSecond > 0){
+			try {
+				TimeUnit.SECONDS.sleep(delayBeforeProcessInSecond);
+			}
+			catch (InterruptedException e) {
+			}
+		}
+	    
 		return productService.list(page);
 	}
 
