@@ -1,1 +1,2 @@
-# digital-saler-inventory-simulator
+# Inventory Simulator
+## Access API documentation
