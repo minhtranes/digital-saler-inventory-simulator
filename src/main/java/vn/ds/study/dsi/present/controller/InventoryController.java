@@ -28,7 +28,7 @@ public class InventoryController {
 
 	@GetMapping("/list")
 	public Page<Product> list(
-		@RequestParam(name = "delayBeforeProcessInSecond", required = false, defaultValue = "0") int delayBeforeProcessInSecond,
+		@RequestParam(name = "delayBeforeProcessInSecond", required = false, defaultValue = "0") int delayBeforeProcessInSecond
 		,Pageable page) {
 
 	    log.info("List all product of page: {}, size: {}, delayBeforeProcessInSecond: {}", page.getPageNumber(), page.getPageSize(), delayBeforeProcessInSecond);
